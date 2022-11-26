@@ -1,4 +1,5 @@
 import { format, parseISO } from 'date-fns';
+import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
 
 const MovieItem = ({
@@ -17,12 +18,14 @@ const MovieItem = ({
 );
 
 export default function Page() {
+  const movies = use(getMovies());
+
   return (
     <>
       <h2 className="text-3xl">Movies page</h2>
 
       <ul className="my-5 space-y-5">
-        {movieDb.reverse().map((movie: Movie, index: number) => (
+        {movies.reverse().map((movie: Movie, index: number) => (
           <MovieItem movie={movie} key={index} />
         ))}
       </ul>
