@@ -2,6 +2,16 @@ import { format, parseISO } from 'date-fns';
 import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
 
+const wait = (delay: number) =>
+  new Promise(function (resolve) {
+    setTimeout(resolve, delay);
+  });
+
+async function getMovies() {
+  await wait(2000);
+  return movieDb;
+}
+
 const MovieItem = ({
   movie: { title, link, watchDate, rating, notes },
 }: {
