@@ -2,7 +2,7 @@ export type Movie = {
   link: string;
   title: string;
   watchDate: string;
-  rating?: string;
+  rating?: 'good' | 'meh' | 'bad';
   notes?: string;
 };
 
