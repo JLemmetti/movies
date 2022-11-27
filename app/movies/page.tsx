@@ -7,7 +7,7 @@ import EditMovieItem from './edit-movie-item';
 import Rating from './rating';
 
 async function getMovies() {
-  await wait(2000);
+  await wait(200);
   return movieDb;
 }
 
@@ -18,7 +18,9 @@ const MovieItem = ({
 }): JSX.Element => (
   <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
     <h3 className="text-xl hover:underline">
-      <a href={link}>{title}</a>
+      <a href={link} target="_blank" rel="noopener noreferrer">
+        {title}
+      </a>
       <div className="relative inline-block w-6 h-6 ml-3 align-middle rounded-full bg-slate-400 hover:bg-slate-600">
         <a
           href={`https://www.justwatch.com/fi/etsi?q=${encodeURI(title)}`}
