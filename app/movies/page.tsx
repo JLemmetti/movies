@@ -1,12 +1,8 @@
 import { format, parseISO } from 'date-fns';
 import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
+import { wait } from '../utils';
 import EditMovieItem from './edit-movie-item';
-
-const wait = (delay: number) =>
-  new Promise(function (resolve) {
-    setTimeout(resolve, delay);
-  });
 
 async function getMovies() {
   await wait(2000);
