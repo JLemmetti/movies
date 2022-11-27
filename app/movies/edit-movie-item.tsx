@@ -1,12 +1,17 @@
+'use client';
+
 import { Movie } from '../api/db';
 import PickDate from './pick-date';
+import { useState } from 'react';
 
 type Props = {
   movie?: Movie;
 };
 
 export default function EditMovieItem({ movie }: Props): JSX.Element {
-  return (
+  const [isEditing, toggleEditing] = useState(false);
+
+  return isEditing ? (
     <form className="p-5 my-5 space-y-4 rounded bg-slate-300">
       <h2 className="text-2xl">{movie ? 'Edit movie' : 'Add new movie'}</h2>
 
@@ -47,14 +52,21 @@ export default function EditMovieItem({ movie }: Props): JSX.Element {
         ></textarea>
       </div>
       <PickDate />
-      <div className="actions">
-        <input type="submit" value="Tallenna" />
-        {/*
-          {{#unless movie.isNew}}
-            <button {{action 'deleteMovie' movie}} class="delete">Poista</button>
-          {{/unless}}
-        <button {{action 'cancelEdit' movie}}>Peruuta</button> */}
+      <div className="flex justify-end space-x-4">
+        <button
+          className="px-3 py-2 mx-1 font-medium rounded-md bg-slate-900 text-slate-100"
+          onClick={() => toggleEditing(true)}
+        >
+          Cancel
+        </button>
+        <input
+          className="px-3 py-2 mx-1 font-medium rounded-md cursor-pointer bg-slate-900 text-slate-100"
+          type="submit"
+          value="Tallenna"
+        />
       </div>
     </form>
+  ) : (
+    <button onClick={() => toggleEditing(true)}>Add movie</button>
   );
 }
