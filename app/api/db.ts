@@ -1,8 +1,10 @@
+export type Rating = 'good' | 'meh' | 'bad';
+
 export type Movie = {
   link: string;
   title: string;
   watchDate: string;
-  rating?: 'good' | 'meh' | 'bad';
+  rating?: Rating;
   notes?: string;
 };
 

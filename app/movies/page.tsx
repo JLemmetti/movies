@@ -14,8 +14,8 @@ const MovieItem = ({
 }: {
   movie: Movie;
 }): JSX.Element => (
-  <li className="px-5 py-10 space-y-4 border-2 border-solid rounded border-slate-300 bg-slate-200">
-    <h3 className="text-xl">
+  <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
+    <h3 className="text-xl hover:underline">
       <a href={link}>{title}</a>
     </h3>
     <h3>({format(parseISO(watchDate), 'd.M.Y')})</h3>
