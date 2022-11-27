@@ -1,4 +1,5 @@
 import { Movie } from '../api/db';
+import PickDate from './pick-date';
 
 type Props = {
   movie?: Movie;
@@ -45,19 +46,7 @@ export default function EditMovieItem({ movie }: Props): JSX.Element {
           defaultValue={movie?.notes ?? ''}
         ></textarea>
       </div>
-
-      <p>watchDate</p>
-
-      {/*
-      <div class="calendar">
-        {{pikaday-inputless
-          options=(hash keyboardInput=false)
-          value=movie.watchDate
-          onSelection=(action (mut movie.watchDate))
-        }}
-      </div>
-      */}
-
+      <PickDate />
       <div className="actions">
         <input type="submit" value="Tallenna" />
         {/*
