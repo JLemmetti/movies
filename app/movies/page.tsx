@@ -3,6 +3,7 @@ import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
 import { wait } from '../utils';
 import EditMovieItem from './edit-movie-item';
+import Rating from './rating';
 
 async function getMovies() {
   await wait(2000);
@@ -20,7 +21,9 @@ const MovieItem = ({
     </h3>
     <h3>({format(parseISO(watchDate), 'd.M.Y')})</h3>
     <p>{notes}</p>
-    <p>{rating}</p>
+    <p>
+      <Rating rating={rating} />
+    </p>
   </li>
 );
 
