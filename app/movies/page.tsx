@@ -1,6 +1,7 @@
 import { format, parseISO } from 'date-fns';
 import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
+import EditMovieItem from './edit-movie-item';
 
 const wait = (delay: number) =>
   new Promise(function (resolve) {
@@ -33,6 +34,8 @@ export default function Page() {
   return (
     <>
       <h2 className="text-3xl">Movies page</h2>
+
+      <EditMovieItem />
 
       <ul className="my-5 space-y-5">
         {movies.reverse().map((movie: Movie, index: number) => (
