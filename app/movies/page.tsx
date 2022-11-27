@@ -14,8 +14,6 @@ export default function Page() {
 
   return (
     <>
-      <h2 className="text-3xl">Movies page</h2>
-
       <EditMovieItem />
 
       <ul className="my-5 space-y-5">

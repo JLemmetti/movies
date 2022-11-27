@@ -6,5 +6,10 @@ import 'react-datepicker/dist/react-datepicker.css';
 type Props = {};
 
 export default function PickDate({}: Props): JSX.Element {
-  return <DatePicker selected={new Date()} onChange={() => null} inline />;
+  return (
+    <div>
+      <p>Date</p>
+      <DatePicker selected={new Date()} onChange={() => null} inline />
+    </div>
+  );
 }

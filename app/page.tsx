@@ -1,3 +1,7 @@
 export default function Page() {
-  return <p>Home</p>;
+  return (
+    <div className="h-[75vh]">
+      <p className="text-lg ">Wellcome to my movie list!</p>
+    </div>
+  );
 }
