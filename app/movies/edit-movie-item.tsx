@@ -19,16 +19,22 @@ export default function EditMovieItem({ movie }: Props): JSX.Element {
           <input type="text" defaultValue={movie?.link ?? ''} />
         </label>
 
-        <fieldset>
+        <fieldset className="flex flex-col">
           <legend>Rating</legend>
-          <input type="radio" name="rating" value="good" id="rating_good" />
-          <label htmlFor="rating_good">Good</label>
+          <div>
+            <input type="radio" name="rating" value="good" id="rating_good" />
+            <label htmlFor="rating_good">Good</label>
+          </div>
 
-          <input type="radio" name="rating" value="meh" id="rating_meh" />
-          <label htmlFor="rating_meh">Meh</label>
+          <div>
+            <input type="radio" name="rating" value="meh" id="rating_meh" />
+            <label htmlFor="rating_meh">Meh</label>
+          </div>
 
-          <input type="radio" name="rating" value="bad" id="rating_bad" />
-          <label htmlFor="rating_bad">Bad</label>
+          <div>
+            <input type="radio" name="rating" value="bad" id="rating_bad" />
+            <label htmlFor="rating_bad">Bad</label>
+          </div>
         </fieldset>
 
         <label htmlFor="notes">Notes</label>

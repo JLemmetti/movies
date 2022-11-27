@@ -17,11 +17,13 @@ const MovieItem = ({
   movie: Movie;
 }): JSX.Element => (
   <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
-    <h3 className="text-xl hover:underline">
-      <a href={link} target="_blank" rel="noopener noreferrer">
-        {title}
-      </a>
-      <div className="relative inline-block w-6 h-6 ml-3 align-middle rounded-full bg-slate-400 hover:bg-slate-600">
+    <div className="flex">
+      <h3 className="text-xl hover:underline">
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          {title}
+        </a>
+      </h3>
+      <div className="w-6 h-6 mt-[3px] ml-3 rounded-full bg-slate-400 hover:bg-slate-600">
         <a
           href={`https://www.justwatch.com/fi/etsi?q=${encodeURI(title)}`}
           target="_blank"
@@ -36,8 +38,8 @@ const MovieItem = ({
           />
         </a>
       </div>
-    </h3>
-    <h3>({format(parseISO(watchDate), 'd.M.Y')})</h3>
+    </div>
+    <p>({format(parseISO(watchDate), 'd.M.Y')})</p>
     <p>{notes}</p>
     <p>
       <Rating rating={rating} />
