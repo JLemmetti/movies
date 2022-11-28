@@ -16,15 +16,15 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
     <EditMovieItem movie={movie} isNew={false} />
   ) : (
     <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
-      <div className="flex">
-        <h3 className="text-xl hover:underline">
+      <div className="flex items-center">
+        <h3 className="text-2xl hover:underline">
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title}
           </a>
         </h3>
 
         <a
-          className="w-6 h-6 mt-[3px] ml-3 rounded-full bg-slate-400 hover:bg-slate-600"
+          className="w-6 h-6 ml-3 rounded-full bg-slate-400 hover:bg-slate-600"
           href={`https://www.justwatch.com/fi/etsi?q=${encodeURI(title)}`}
           target="_blank"
           rel="noopener noreferrer"

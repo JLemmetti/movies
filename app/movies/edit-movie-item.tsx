@@ -19,8 +19,8 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
     editedMovie.watchDate = formatISO(changeDate);
   };
 
-  const saveChanges = (movie: Movie) => {
-    console.log(movie);
+  const saveChanges = () => {
+    console.log(editedMovie);
   };
 
   return isEditing || !isNew ? (
@@ -114,7 +114,7 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
       </div>
       <div className="flex justify-end space-x-4">
         <button onClick={() => toggleEditing(true)}>Cancel</button>
-        <button onClick={() => saveChanges(editedMovie)}>Save</button>
+        <button onClick={saveChanges}>Save</button>
       </div>
     </form>
   ) : (
