@@ -27,22 +27,41 @@ export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
             <input type="text" id="link" defaultValue={movie?.link ?? ''} />
           </div>
         </div>
+
         <fieldset className="flex flex-col">
           <legend>Rating</legend>
           <div className="space-x-2">
-            <input type="radio" name="rating" value="good" id="rating_good" />
+            <input
+              type="radio"
+              defaultChecked={movie?.rating === 'good'}
+              name="rating"
+              value="good"
+              id="rating_good"
+            />
             <label className="ml-2" htmlFor="rating_good">
               Good
             </label>
           </div>
           <div className="space-x-2">
-            <input type="radio" name="rating" value="meh" id="rating_meh" />
+            <input
+              type="radio"
+              defaultChecked={movie?.rating === 'meh'}
+              name="rating"
+              value="meh"
+              id="rating_meh"
+            />
             <label className="ml-2" htmlFor="rating_meh">
               Meh
             </label>
           </div>
           <div className="space-x-2">
-            <input type="radio" name="rating" value="bad" id="rating_bad" />
+            <input
+              type="radio"
+              defaultChecked={movie?.rating === 'bad'}
+              name="rating"
+              value="bad"
+              id="rating_bad"
+            />
             <label className="ml-2" htmlFor="rating_bad">
               Bad
             </label>
@@ -60,7 +79,7 @@ export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
             defaultValue={movie?.notes ?? ''}
           ></textarea>
         </div>
-        <PickDate />
+        <PickDate watchDate={movie?.watchDate} />
       </div>
       <div className="flex justify-end space-x-4">
         <button
@@ -72,7 +91,7 @@ export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
         <input
           className="px-3 py-2 mx-1 font-medium rounded-md cursor-pointer bg-slate-900 text-slate-100"
           type="submit"
-          value="Tallenna"
+          value="Save"
         />
       </div>
     </form>
