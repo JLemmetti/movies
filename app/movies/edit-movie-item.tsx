@@ -6,13 +6,13 @@ import { useState } from 'react';
 
 type Props = {
   movie?: Movie;
-  enable?: boolean;
+  isNew: boolean;
 };
 
-export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
+export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
   const [isEditing, toggleEditing] = useState(false);
 
-  return isEditing || enable ? (
+  return isEditing || !isNew ? (
     <form className="p-5 my-5 space-y-4 rounded bg-slate-300">
       <h2 className="text-2xl">{movie ? 'Edit movie' : 'Add new movie'}</h2>
 

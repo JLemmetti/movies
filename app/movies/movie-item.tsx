@@ -13,7 +13,7 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
   const { title, link, watchDate, rating, notes } = movie;
 
   return isEditing ? (
-    <EditMovieItem movie={movie} enable={true} />
+    <EditMovieItem movie={movie} isNew={false} />
   ) : (
     <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
       <div className="flex">

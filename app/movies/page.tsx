@@ -14,7 +14,7 @@ export default function Page() {
 
   return (
     <>
-      <EditMovieItem />
+      <EditMovieItem isNew={true} />
 
       <ul className="my-5 space-y-5">
         {movies.reverse().map((movie: Movie, index: number) => (
