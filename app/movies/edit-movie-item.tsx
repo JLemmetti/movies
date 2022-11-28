@@ -107,6 +107,13 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
       </div>
     </form>
   ) : (
-    <button onClick={() => toggleEditing(true)}>Add movie</button>
+    <div className="flex justify-end space-x-4">
+      <button
+        className="px-3 py-2 mx-1 font-medium rounded-md bg-slate-900 text-slate-100"
+        onClick={() => toggleEditing(true)}
+      >
+        Add movie
+      </button>
+    </div>
   );
 }
