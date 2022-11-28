@@ -17,11 +17,23 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
   ) : (
     <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
       <div className="flex items-center">
-        <h3 className="text-2xl hover:underline">
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            {title}
-          </a>
-        </h3>
+        <h3 className="text-2xl hover:underline">{title}</h3>
+
+        <a
+          className="ml-3 "
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`${title} on IMDB`}
+        >
+          <Image
+            className="outline-slate-600 hover:outline hover:outline-2"
+            src="/imgs/imdb.svg"
+            width="45"
+            height="20"
+            alt=""
+          />
+        </a>
 
         <a
           className="w-6 h-6 ml-3 rounded-full bg-slate-400 hover:bg-slate-600"
