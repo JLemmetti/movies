@@ -20,11 +20,21 @@ export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col">
             <label htmlFor="title">Title</label>
-            <input type="text" id="title" defaultValue={movie?.title ?? ''} />
+            <input
+              className="px-2 py-2 rounded-md"
+              type="text"
+              id="title"
+              defaultValue={movie?.title ?? ''}
+            />
           </div>
           <div className="flex flex-col">
             <label htmlFor="link">Link</label>
-            <input type="text" id="link" defaultValue={movie?.link ?? ''} />
+            <input
+              className="px-2 py-2 rounded-md"
+              type="text"
+              id="link"
+              defaultValue={movie?.link ?? ''}
+            />
           </div>
         </div>
 
@@ -73,6 +83,7 @@ export default function EditMovieItem({ movie, enable }: Props): JSX.Element {
         <div className="flex flex-col">
           <label htmlFor="notes">Notes</label>
           <textarea
+            className="px-2 py-2 rounded-md"
             name="notes"
             id="notes"
             rows={5}
