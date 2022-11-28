@@ -93,27 +93,13 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
         <PickDate watchDate={movie?.watchDate} />
       </div>
       <div className="flex justify-end space-x-4">
-        <button
-          className="px-3 py-2 mx-1 font-medium rounded-md bg-slate-900 text-slate-100"
-          onClick={() => toggleEditing(true)}
-        >
-          Cancel
-        </button>
-        <input
-          className="px-3 py-2 mx-1 font-medium rounded-md cursor-pointer bg-slate-900 text-slate-100"
-          type="submit"
-          value="Save"
-        />
+        <button onClick={() => toggleEditing(true)}>Cancel</button>
+        <input type="submit" value="Save" />
       </div>
     </form>
   ) : (
     <div className="flex justify-end space-x-4">
-      <button
-        className="px-3 py-2 mx-1 font-medium rounded-md bg-slate-900 text-slate-100"
-        onClick={() => toggleEditing(true)}
-      >
-        Add movie
-      </button>
+      <button onClick={() => toggleEditing(true)}>Add movie</button>
     </div>
   );
 }
