@@ -1,8 +1,9 @@
 'use client';
 
-import { Movie } from '../api/db';
-import PickDate from './pick-date';
+import { formatISO } from 'date-fns';
 import { useState } from 'react';
+import { Movie, Rating } from '../api/db';
+import PickDate from './pick-date';
 
 type Props = {
   movie?: Movie;
@@ -11,6 +12,16 @@ type Props = {
 
 export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
   const [isEditing, toggleEditing] = useState(false);
+
+  const editedMovie = { ...movie } as Movie;
+
+  const onWatchDateChange = (changeDate: Date) => {
+    editedMovie.watchDate = formatISO(changeDate);
+  };
+
+  const saveChanges = (movie: Movie) => {
+    console.log(movie);
+  };
 
   return isEditing || !isNew ? (
     <form className="p-5 my-5 space-y-4 rounded bg-slate-300">
@@ -25,6 +36,7 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
               type="text"
               id="title"
               defaultValue={movie?.title ?? ''}
+              onChange={(e) => (editedMovie.title = e.target.value)}
             />
           </div>
           <div className="flex flex-col">
@@ -34,6 +46,7 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
               type="text"
               id="link"
               defaultValue={movie?.link ?? ''}
+              onChange={(e) => (editedMovie.link = e.target.value)}
             />
           </div>
         </div>
@@ -43,10 +56,11 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
           <div className="space-x-2">
             <input
               type="radio"
-              defaultChecked={movie?.rating === 'good'}
               name="rating"
               value="good"
               id="rating_good"
+              defaultChecked={movie?.rating === 'good'}
+              onChange={(e) => (editedMovie.rating = e.target.value as Rating)}
             />
             <label className="ml-2" htmlFor="rating_good">
               Good
@@ -55,10 +69,11 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
           <div className="space-x-2">
             <input
               type="radio"
-              defaultChecked={movie?.rating === 'meh'}
               name="rating"
               value="meh"
               id="rating_meh"
+              defaultChecked={movie?.rating === 'meh'}
+              onChange={(e) => (editedMovie.rating = e.target.value as Rating)}
             />
             <label className="ml-2" htmlFor="rating_meh">
               Meh
@@ -67,10 +82,11 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
           <div className="space-x-2">
             <input
               type="radio"
-              defaultChecked={movie?.rating === 'bad'}
               name="rating"
               value="bad"
               id="rating_bad"
+              defaultChecked={movie?.rating === 'bad'}
+              onChange={(e) => (editedMovie.rating = e.target.value as Rating)}
             />
             <label className="ml-2" htmlFor="rating_bad">
               Bad
@@ -88,13 +104,17 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
             id="notes"
             rows={5}
             defaultValue={movie?.notes ?? ''}
+            onChange={(e) => (editedMovie.notes = e.target.value)}
           ></textarea>
         </div>
-        <PickDate watchDate={movie?.watchDate} />
+        <PickDate
+          watchDate={movie?.watchDate}
+          onWatchDateChange={onWatchDateChange}
+        />
       </div>
       <div className="flex justify-end space-x-4">
         <button onClick={() => toggleEditing(true)}>Cancel</button>
-        <input type="submit" value="Save" />
+        <button onClick={() => saveChanges(editedMovie)}>Save</button>
       </div>
     </form>
   ) : (
