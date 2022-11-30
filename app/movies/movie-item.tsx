@@ -2,6 +2,7 @@
 
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState } from 'react';
 import { Movie } from '../api/db';
 import EditMovieItem from './edit-movie-item';
@@ -17,7 +18,9 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
   ) : (
     <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
       <div className="flex items-center">
-        <h3 className="text-2xl hover:underline">{title}</h3>
+        <h3 className="text-2xl hover:underline">
+          <Link href={`/movies/${movie.id}`}>{title}</Link>
+        </h3>
 
         <a
           className="ml-3 "
