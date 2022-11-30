@@ -16,7 +16,7 @@ export default function NavLink({ href, children }: Props): JSX.Element {
   const active = href === `/${segment}`;
 
   return (
-    <Link className={active ? 'underline' : ''} href={href}>
+    <Link className={active ? 'underline underline-offset-4' : ''} href={href}>
       {children}
     </Link>
   );

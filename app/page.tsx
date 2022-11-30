@@ -1,7 +1,9 @@
 export default function Page() {
   return (
-    <div className="h-[75vh]">
-      <p className="text-lg ">Wellcome to my movie list!</p>
+    <div className="h-[60vh]">
+      <p className="pt-20 mx-auto text-3xl text-center">
+        Welcome to my movie list!
+      </p>
     </div>
   );
 }
