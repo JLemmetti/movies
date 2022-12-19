@@ -1,21 +1,13 @@
-'use client';
-
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import { Movie } from '../api/db';
-import EditMovieItem from './edit-movie-item';
 import Rating from './rating';
 
 export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
-  const [isEditing, toggleEditing] = useState(false);
-
   const { title, link, watchDate, rating, notes } = movie;
 
-  return isEditing ? (
-    <EditMovieItem movie={movie} isNew={false} />
-  ) : (
+  return (
     <li className="px-5 py-10 space-y-4 rounded bg-slate-200">
       <div className="flex items-center">
         <h3 className="text-2xl hover:underline">
@@ -59,9 +51,6 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
       <p>
         <Rating rating={rating} />
       </p>
-      <div className="flex justify-end space-x-4">
-        <button onClick={() => toggleEditing(true)}>Edit</button>
-      </div>
     </li>
   );
 };
