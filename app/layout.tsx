@@ -26,20 +26,7 @@ export default function RootLayout({ children }: Props): JSX.Element {
 
         <footer className="h-32 p-4 bg-slate-800">
           <p className="text-gray-200">(2022)</p>
-          <div className="flex justify-end my-5 space-x-3">
-            <Image
-              src="/imgs/valid-css.png"
-              width="75"
-              height="40"
-              alt="Valid CSS"
-            />
-            <Image
-              src="/imgs/valid-html401.png"
-              width="75"
-              height="40"
-              alt="Valid CSS"
-            />
-          </div>
+          <div className="flex justify-end my-5 space-x-3"></div>
         </footer>
       </body>
     </html>
