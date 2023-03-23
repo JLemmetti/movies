@@ -1,6 +1,6 @@
-import NavLink from './nav-link';
-import Image from 'next/image';
 import '../styles/globals.css';
+import NavLink from './nav-link';
+import Providers from './providers';
 
 type Props = {
   children: JSX.Element;
