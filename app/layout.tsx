@@ -22,7 +22,9 @@ export default function RootLayout({ children }: Props): JSX.Element {
           </nav>
         </header>
 
-        <main className="px-32 py-5">{children}</main>
+        <main className="px-32 py-5">
+          <Providers>{children}</Providers>
+        </main>
 
         <footer className="h-32 p-4 bg-slate-800">
           <p className="text-gray-200">(2022)</p>
