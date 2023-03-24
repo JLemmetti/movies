@@ -25,9 +25,11 @@ export default function RootLayout({ children }: Props): JSX.Element {
 
       <div className="grid grid-cols-2 gap-4">
         <ul className="my-5 space-y-5">
-          {movies.map((movie: Movie, index: number) => (
-            <MovieItem movie={movie} key={movie.id} />
-          ))}
+          {movies
+            .map((movie: Movie, index: number) => (
+              <MovieItem movie={movie} key={movie.id} />
+            ))
+            .reverse()}
         </ul>
 
         <div>{children}</div>

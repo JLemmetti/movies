@@ -11,7 +11,7 @@ export default function Component() {
   if (session) {
     return (
       <div className="flex items-center space-x-2">
-        <p>Signed in as {session.user?.email}</p>
+        <p>{session.user?.name}</p>
         <Image
           className="rounded-full"
           src={avatarUrl}
@@ -27,7 +27,6 @@ export default function Component() {
   }
   return (
     <div className="flex items-center space-x-2">
-      <p>Not signed in</p>
       <button onClick={() => signIn()}>Sign in</button>
     </div>
   );

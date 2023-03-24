@@ -39,9 +39,7 @@ export const MovieDetails = ({ id }: Params) => {
         <strong>Watched:</strong> {format(parseISO(watchDate), 'd.M.Y')}
       </p>
 
-      <p>
-        <Rating rating={rating} />
-      </p>
+      <Rating rating={rating} />
 
       <p>{notes}</p>
 

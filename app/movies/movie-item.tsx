@@ -48,9 +48,7 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
       </div>
       <p>({format(parseISO(watchDate), 'd.M.Y')})</p>
       <p>{notes}</p>
-      <p>
-        <Rating rating={rating} />
-      </p>
+      <Rating rating={rating} />
     </li>
   );
 };
