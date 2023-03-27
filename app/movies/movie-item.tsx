@@ -22,7 +22,7 @@ export const MovieItem = ({ movie }: { movie: Movie }): JSX.Element => {
           title={`${title} on IMDB`}
         >
           <Image
-            className="outline-slate-600 hover:outline hover:outline-2"
+            className="w-auto h-6 outline-slate-600 hover:outline hover:outline-2"
             src="/imgs/imdb.svg"
             width="45"
             height="20"

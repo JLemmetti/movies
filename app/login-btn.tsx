@@ -1,7 +1,6 @@
 'use client';
 
 import { signIn, signOut, useSession } from 'next-auth/react';
-import UserInformation from './user-information';
 import Image from 'next/image';
 
 export default function Component() {
@@ -11,7 +10,7 @@ export default function Component() {
   if (session) {
     return (
       <div className="flex items-center space-x-2">
-        <p>{session.user?.name}</p>
+        <p className="text-xl">{session.user?.name}</p>
         <Image
           className="rounded-full"
           src={avatarUrl}
@@ -21,7 +20,6 @@ export default function Component() {
           alt="avatar"
         />
         <button onClick={() => signOut()}>Sign out</button>
-        {/* <UserInformation data={session.user} /> */}
       </div>
     );
   }
