@@ -1,7 +1,11 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
 import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
 import { wait } from '../utils';
 import EditMovieItem from './edit-movie-item';
+import { Filters } from './Filters';
 import { MovieItem } from './movie-item';
 
 type Props = {
@@ -15,6 +19,8 @@ async function getMovies() {
 
 export default function RootLayout({ children }: Props): JSX.Element {
   const movies = use(getMovies());
+  const searchParams = useSearchParams();
+  const rating = searchParams.get('rating');
 
   return (
     <div>
@@ -23,9 +29,12 @@ export default function RootLayout({ children }: Props): JSX.Element {
 
       <EditMovieItem isNew={true} />
 
+      <Filters />
+
       <div className="grid grid-cols-2 gap-4">
         <ul className="my-5 space-y-5">
           {movies
+            .filter((movie) => (rating ? movie.rating === rating : true))
             .map((movie: Movie, index: number) => (
               <MovieItem movie={movie} key={movie.id} />
             ))
