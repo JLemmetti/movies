@@ -32,7 +32,7 @@ export const MovieDetails = ({ id }: Params) => {
   return isEditing ? (
     <EditMovieItem movie={movie} isNew={false} />
   ) : (
-    <div className="px-5 py-10 my-5 space-y-4 rounded bg-slate-200">
+    <div className="sticky px-5 py-10 my-5 space-y-4 rounded top-8 bg-slate-200">
       <h3 className="text-2xl">{title}</h3>
 
       <p>
