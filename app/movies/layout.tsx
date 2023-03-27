@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { use } from 'react';
 import { Movie, movieDb } from '../api/db';
-import { wait } from '../utils';
+// import { wait } from '../utils';
 import EditMovieItem from './edit-movie-item';
 import { Filters } from './Filters';
 import { MovieItem } from './movie-item';
@@ -13,7 +13,7 @@ type Props = {
 };
 
 async function getMovies() {
-  await wait(2000); // Prefetched
+  // await wait(2000);
   return movieDb;
 }
 
