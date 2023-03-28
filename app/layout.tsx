@@ -17,7 +17,7 @@ export default function RootLayout({ children }: Props): JSX.Element {
       </head>
       <Providers>
         <body className="antialiased bg-slate-400">
-          <header className="p-8 bg-slate-500">
+          <header className="px-8 pt-8 pb-1 bg-slate-500">
             <div className="flex items-center justify-between">
               <h1 className="text-xl">
                 <Link

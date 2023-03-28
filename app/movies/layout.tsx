@@ -24,8 +24,10 @@ export default function RootLayout({ children }: Props): JSX.Element {
 
   return (
     <div>
-      <h2 className="text-3xl">Movies</h2>
-      <p>(Movies watched: {movies.length})</p>
+      <h2 className="text-3xl font-medium text-slate-800">Movies</h2>
+      <p className="text-lg text-slate-700">
+        (Movies watched: {movies.length})
+      </p>
 
       <EditMovieItem isNew={true} />
 

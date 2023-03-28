@@ -21,7 +21,12 @@ export default function NavLink({ href, children }: Props): JSX.Element {
   if (!session) return <div />;
 
   return (
-    <Link className={active ? 'underline underline-offset-4' : ''} href={href}>
+    <Link
+      className={`text-slate-800 hover:text-slate-900 font-medium ${
+        active ? 'underline underline-offset-4 text-slate-900' : ''
+      }`}
+      href={href}
+    >
       {children}
     </Link>
   );
