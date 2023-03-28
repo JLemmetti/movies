@@ -20,7 +20,7 @@ async function getMovies() {
 export default function RootLayout({ children }: Props): JSX.Element {
   const movies = use(getMovies());
   const searchParams = useSearchParams();
-  const rating = searchParams.get('rating');
+  const rating = searchParams?.get('rating');
 
   return (
     <div>
