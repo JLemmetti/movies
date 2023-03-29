@@ -24,7 +24,11 @@ export default function EditMovieItem({ movie, isNew }: Props): JSX.Element {
   };
 
   return isEditing || !isNew ? (
-    <form className="p-5 my-5 space-y-4 rounded bg-slate-300">
+    <form
+      className={`p-5 my-5 space-y-4 rounded bg-slate-300 ${
+        isNew ? '' : 'sticky top-8 '
+      }`}
+    >
       <h2 className="text-2xl">{movie ? 'Edit movie' : 'Add new movie'}</h2>
 
       <div className="space-y-4">

@@ -41,9 +41,8 @@ export const MovieDetails = ({ id }: Params) => {
 
       <Rating rating={rating} />
 
-      <p>{notes}</p>
-
       <p>
+        {notes}
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolorum aut
         error magni, voluptatum labore nesciunt adipisci quos itaque delectus
         vitae doloremque optio ratione dignissimos sit atque, unde veritatis

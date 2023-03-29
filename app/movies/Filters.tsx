@@ -5,13 +5,13 @@ import { useCallback } from 'react';
 
 export const Filters = (): JSX.Element => {
   const searchParams = useSearchParams();
-  const currentRating = searchParams.get('rating');
+  const currentRating = searchParams?.get('rating');
   const router = useRouter();
   const pathname = usePathname();
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams);
+      const params = new URLSearchParams(searchParams ?? '');
       params.set(name, value);
 
       return params.toString();
@@ -23,7 +23,7 @@ export const Filters = (): JSX.Element => {
     if (currentRating !== rating) {
       router.push(pathname + '?' + createQueryString('rating', rating));
     } else {
-      router.push(pathname);
+      router.push(pathname ?? '');
     }
   };
 
